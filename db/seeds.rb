@@ -6,26 +6,9 @@
 require 'faker'
 require 'factory_bot'
 
-FactoryBot.define do
-  factory :user do
-    email { Faker::Internet.email }
-    name { Faker::Name.name }
-  end
 
-  factory :product do
-    name { Faker::Commerce.product_name }
-    image { Faker::LoremFlickr.image }
-    price { Faker::Commerce.price }
-    currency { Faker::Currency.code }
-    quantity { Faker::Number.between(from: 1, to: 10) }
-  end
-end
+  FactoryBot.create_list(:user,3)
 
-3.times do
-  FactoryBot.create(:user)
-end
+  FactoryBot.create_list(:product,20)
 
-5.times do
-  FactoryBot.create(:product)
-end
 
