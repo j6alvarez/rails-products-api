@@ -1,24 +1,37 @@
-# README
+# Rails products api
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## System dependencies
 
-Things you may want to cover:
+- Ruby 2.7.7
+- Rails 6.1.4
 
-* Ruby version
+## Configuration
 
-* System dependencies
+Use `rbenv`. See https://github.com/rbenv/rbenv
 
-* Configuration
+## Installing
 
-* Database creation
+```sh
+# Clone the repo
+git clone <this repo>
 
-* Database initialization
+# Install the gems
+bundle install
 
-* How to run the test suite
+# Create and seed the DB
+rake db:create db:migrate db:seed
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Running in local
 
-* Deployment instructions
+```sh
+# Start the dev server
+rails s
+```
 
-* ...
+## Test suite
+
+```sh
+# Run tests
+bundle exec rspec
+```
