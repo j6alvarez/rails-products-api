@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
   def create
     begin
       metadata = {
-      page: page,
+      page: page.to_i,
       total_records: products.total_count
     }
 
