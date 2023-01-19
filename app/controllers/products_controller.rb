@@ -8,6 +8,14 @@ class ProductsController < ApplicationController
     end
   end
 
+  def show
+    begin
+      render json: product, status: :ok
+    rescue => e
+      render json: { error: e.message }, status: :not_found
+    end
+  end
+
   def create
     begin
       metadata = {
@@ -32,6 +40,10 @@ class ProductsController < ApplicationController
     @products = @products.where("name like ?", "%#{name}%") if name.present?
     @products = @products.where(currency: currency) if currency.present?
     @products = @products.page(page).per(size)
+  end
+
+  def product
+    @product ||= Product.find(params[:id])
   end
 
   def page
